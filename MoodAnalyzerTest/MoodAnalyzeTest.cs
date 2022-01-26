@@ -131,7 +131,8 @@ namespace MoodAnalyzerTest
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
         {
             object expected = new MoodAnalyze("HAPPY");
-            object obj = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzerApp.MoodAnalyse", "MoodAnalyse");
+            object obj = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzerProblem.MoodAnalyze",
+                "MoodAnalyse", "HAPPY");
             expected.Equals(obj);
         }
 
@@ -144,7 +145,8 @@ namespace MoodAnalyzerTest
             string expected = "Class Not Found";
             try
             {
-                object moodAnalyseObject = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzerApp.DemoClass", "MoodAnalyse");
+                object moodAnalyseObject = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzerProblem.DemoClass",
+                    "MoodAnalyze", "HAPPY");
 
             }
             catch (MoodAnalyzeException exception)
@@ -152,6 +154,7 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual(expected, exception.Message);
             }
         }
+
         /// <summary>
         /// Test Case 5.3 Given Improper Constructor Name Should throw MoodAnalyssiException.
         /// </summary>
@@ -161,12 +164,42 @@ namespace MoodAnalyzerTest
             string expected = "Constructor is Not Found";
             try
             {
-                object moodAnalyseObject = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzerApp.MoodAnalyse", "DemoConstructor");
+                object moodAnalyseObject = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzerProblem.MoodAnalyze",
+                    "DemoConstructor", "HAPPY");
 
             }
             catch (MoodAnalyzeException exception)
             {
                 Assert.AreEqual(expected, exception.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Test Case 6.1 Given Happy Should Return Happy.
+        /// </summary>
+        [TestMethod]
+        public void GivenHappyMoodShouldReturnHappy()
+        {
+            string expected = "HAPPY";
+            string mood = MoodAnalyseFactory.InvokeAnalyseMood("Happy", "AnalyseMood");
+            Assert.AreEqual(expected, mood);
+        }
+
+        /// <summary>
+        /// Test Case 6.2 Given Happy Should Return Happy.
+        /// </summary>
+        [TestMethod]
+        public void Given_ImproperMethodName_Should_Throw_MoodAnalysisException()
+        {
+            string expected = "Method is Not Found";
+            try
+            {
+                string mood = MoodAnalyseFactory.InvokeAnalyseMood("Happy", "DemoMethod");
+            }
+            catch (MoodAnalyzeException e)
+            {
+                Assert.AreEqual(expected, e.Message);
             }
         }
 
