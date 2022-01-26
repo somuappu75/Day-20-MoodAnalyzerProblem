@@ -11,6 +11,9 @@ namespace MoodAnalyzerProblem
             MoodAnalyze moodAnalyze = new MoodAnalyze("I am in Happy Mood");
             string mood = moodAnalyze.AnalyzeMood();
 
+            Type type = typeof(MoodAnalyze);
+            Console.WriteLine(type.FullName);
+
         }
     }
 }
