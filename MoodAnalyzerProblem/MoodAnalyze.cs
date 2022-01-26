@@ -6,6 +6,7 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyze
     {
+        public MoodAnalyze() { }
         private string message;
         /// <summary>
         /// parameterised constructor
