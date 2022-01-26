@@ -77,5 +77,52 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual("Mood should not be Empty", e.Message);
             }
         }
+        /// <summary>
+        ///  Test Case 4.1 Given MoodAnalyse Class Name Should Return MoodAnalyser Object.
+        /// </summary>
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            object expected = new MoodAnalyze();
+            object obj = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyzerApp.MoodAnalyse", "MoodAnalyse");
+            expected.Equals(obj);
+        }
+
+        /// <summary>
+        ///  Test Case 4.2 Given Improper Class Name Should throw MoodAnalyssiException.
+        /// </summary>
+        [TestMethod]
+        public void GivenImproperClassNameShouldThrowMoodAnalysisException()
+        {
+            string expected = "Class Not Found";
+            try
+            {
+                object moodAnalyseObject = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyzerApp.DemoClass", "DemoClass");
+
+            }
+            catch (MoodAnalyzeException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Test Case 4.3 Given Improper Constructor should throw MoodAnalysisException.
+        /// </summary>
+        [TestMethod]
+        public void GivenImproperConstructorShouldThrowMoodAnalysisException()
+        {
+
+            string expected = "Constructor is Not Found";
+            try
+            {
+                object moodAnalyseObject = MoodAnalyseFactory.CreateMoodAnalyse("DemoClass", "MoodAnalyse");
+            }
+            catch (MoodAnalyzeException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
+        }
     }
 }
