@@ -24,7 +24,12 @@ namespace MoodAnalyzerTest
             Assert.AreEqual(expected, mood);
     
         }
+        /// <summary>
+        /// TC 1.2 Return happy moood 
+        /// </summary>
         [TestMethod]
+        [DataRow("I am in HAPPY Mood")]
+        [DataRow(null)]
         public void ReturnHappy()
         {
             //Arrange
