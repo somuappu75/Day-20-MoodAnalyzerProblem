@@ -39,7 +39,7 @@ namespace MoodAnalyzerProblem
         }
 
         //uc-5 added
-        public static object CreateMoodAnalyseUsingParameterizedConstructor(string className, string constructorName)
+        public static object CreateMoodAnalyseUsingParameterizedConstructor(string className, string constructorName,string message)
         {
             Type type = typeof(MoodAnalyze);
             if (type.Name.Equals(className) || type.FullName.Equals(className))
@@ -61,6 +61,22 @@ namespace MoodAnalyzerProblem
                 throw new MoodAnalyzeException(MoodAnalyzeException.ExceptionType.NO_SUCH_CLASS, "Class Not Found");
             }
 
+        }
+        //uc-6 added
+        public static string InvokeAnalyseMood(string message, string methodName)
+        {
+            try
+            {
+                Type type = Type.GetType("MoodAnalyzerProblem.MoodAnalyze");
+                object moodAnalyseObject = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzerProblem.MoodAnalyze", "MoodAnalyze", message);
+                MethodInfo analyseMoodInfo = type.GetMethod(methodName);
+                object mood = analyseMoodInfo.Invoke(moodAnalyseObject, null);
+                return mood.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                throw new MoodAnalyzeException(MoodAnalyzeException.ExceptionType.NO_SUCH_METHOD, "Method is Not Found");
+            }
         }
     }
 }
