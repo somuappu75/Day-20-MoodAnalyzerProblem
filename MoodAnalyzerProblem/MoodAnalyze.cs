@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MoodAnalyzerProblem
 {
-     public class MoodAnalyze
+    public class MoodAnalyze
     {
         private string message;
         /// <summary>
@@ -17,15 +17,23 @@ namespace MoodAnalyzerProblem
         }
         public string AnalyzeMood()
         {
-            if (this.message.Contains("Sad"))
+            try
             {
-                return "SAD";
+
+                if (this.message.Contains("Sad"))
+                {
+                    return "SAD";
+                }
+                else
+                {
+                    return "HAPPY";
+                }
             }
-            else
+            catch
             {
                 return "HAPPY";
             }
-        }
 
+        }
     }
 }
