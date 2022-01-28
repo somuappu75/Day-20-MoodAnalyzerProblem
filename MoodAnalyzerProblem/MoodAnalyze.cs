@@ -16,6 +16,7 @@ namespace MoodAnalyzerProblem
         {
             this.message = message;
         }
+        //exception handle using analyzeMood method
         public string AnalyzeMood()
         {
             try

@@ -62,7 +62,7 @@ namespace MoodAnalyzerProblem
             }
 
         }
-        //uc-6 added
+        //uc-6 added the excetion handling is created 
         public static string InvokeAnalyseMood(string message, string methodName)
         {
             try
@@ -78,5 +78,11 @@ namespace MoodAnalyzerProblem
                 throw new MoodAnalyzeException(MoodAnalyzeException.ExceptionType.NO_SUCH_METHOD, "Method is Not Found");
             }
         }
+
+       
+            
+
     }
-}
+ }
+    
+
