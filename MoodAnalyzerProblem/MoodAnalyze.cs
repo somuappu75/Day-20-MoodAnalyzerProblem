@@ -6,6 +6,7 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyze
     {
+        //using reflection get method and constuctor type
         public MoodAnalyze() { }
         private string message;
         /// <summary>

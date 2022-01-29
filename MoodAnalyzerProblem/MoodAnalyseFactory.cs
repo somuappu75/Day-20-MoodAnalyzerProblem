@@ -38,7 +38,7 @@ namespace MoodAnalyzerProblem
             }
         }
 
-        //uc-5 added
+        //uc-5 added Get Type Of constructor using reflection method nkfjhfn l[fjfhjfi fd4
         public static object CreateMoodAnalyseUsingParameterizedConstructor(string className, string constructorName,string message)
         {
             Type type = typeof(MoodAnalyze);
@@ -62,7 +62,7 @@ namespace MoodAnalyzerProblem
             }
 
         }
-        //uc-6 added the excetion handling is created 
+        //uc-6 added the excetion handling is created //get type of methos using reflection
         public static string InvokeAnalyseMood(string message, string methodName)
         {
             try
