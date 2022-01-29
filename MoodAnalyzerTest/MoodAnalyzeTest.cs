@@ -62,7 +62,7 @@ namespace MoodAnalyzerTest
         }
         /// <summary>
         /// TC 3.2: Given Empty Mood Should Throw MoodAnalysisException Indicating Empty Mood.
-        /// exception using reflecction
+        //// exception using reflecction
         /// </summary>
         [TestMethod]
         public void Given_Empty_Mood_Should_Throw_MoodAnalysisException_Indicating_EmptyMood()
