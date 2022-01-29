@@ -110,6 +110,7 @@ namespace MoodAnalyzerTest
 
         /// <summary>
         /// Test Case 4.3 Given Improper Constructor should throw MoodAnalysisException.
+        /// check constructor is found or not
         /// </summary>
         [TestMethod]
         public void GivenImproperConstructorShouldThrowMoodAnalysisException()
